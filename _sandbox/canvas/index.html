@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Canvas</title>
+		<style type="text/css"></style>
+	</head>
+	<body>
+		<canvas id="theCanvas" width="800" height="800">
+			Canvas not supported!
+		</canvas>	
+	</body>
+	<script type="text/javascript">
+
+		const example = {
+			'stroke': 'black',
+			'fill': 'silver',
+			'horizontal': 10,
+			'vertical': 10,
+			'width': 100,
+			'height': 100
+		}
+
+		example.draw = (args) => {
+			let canvas = document.getElementById('theCanvas');
+			let context = canvas.getContext('2d');
+			if (args) {
+				context.strokeStyle = args.stroke;
+				context.fillStyle = args.fill;
+				context.fillRect(args.horizontal,args.vertical,args.width,args.height);
+				context.strokeRect(args.horizontal,args.vertical,args.width,args.height);
+			} 
+			else {
+				context.strokeStyle = example.stroke;
+				context.fillStyle = example.fill;
+				context.fillRect(example.horizontal,example.vertical,example.width,example.height);
+				context.strokeRect(example.horizontal,example.vertical,example.width,example.height);		
+			}
+		}
+
+		example.draw();
+
+		example.draw({stroke:'yellow',fill:'green',horizontal:'20',vertical:'20',width:'100',height:'100'});
+		example.draw({stroke:'red',fill:'blue',horizontal:'30',vertical:'30',width:'100',height:'100'});
+		example.draw({stroke:'green',fill:'yellow',horizontal:'40',vertical:'40',width:'100',height:'100'});
+		example.draw({stroke:'blue',fill:'red',horizontal:'50',vertical:'50',width:'100',height:'100'});
+			
+		example.stroke = 'blue';
+		example.fill = 'purple';
+		example.horizontal = 60;
+		example.vertical = 60;
+		example.width = 100;
+		example.height = 100;
+
+		example.draw();
+
+	</script>
+</html>
